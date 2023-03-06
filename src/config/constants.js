@@ -1,6 +1,6 @@
 export const NOT_FOUND_PAGE_REDIRECT_MS = 500;
 
-export const API_LINK = process.env.REACT_APP_API_URL;
+export const API_LINK = 'https://bim-viewer-api.onrender.com/';
 
 export const styles = {
   input: { width: '100%' },
