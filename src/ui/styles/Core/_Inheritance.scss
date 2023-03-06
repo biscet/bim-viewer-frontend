@@ -1,0 +1,150 @@
+@import './Mixins';
+
+@include inheritance(flex) {
+  display: flex;
+
+  &-column {
+    flex-direction: column;
+  }
+
+  &-row {
+    flex-direction: column;
+  }
+
+  &-wrap {
+    flex-wrap: wrap;
+  }
+}
+
+@include inheritance(grid) {
+  display: grid;
+
+  &-center {
+    justify-items: center;
+  }
+}
+
+@include inheritance(box-border) {
+  box-sizing: border-box;
+}
+
+@include inheritance(align) {
+  &-center {
+    align-items: center;
+  }
+
+  &-start {
+    align-items: flex-start;
+  }
+}
+
+@include inheritance(justify) {
+  &-center {
+    justify-content: center;
+  }
+
+  &-between {
+    justify-content: space-between;
+  }
+}
+
+@include inheritance(padding) {
+  &-from-header {
+    padding-top: 20px;
+  }
+
+  &-basic {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+}
+
+@include inheritance(margin) {
+  &-top-none {
+    margin-top: 0px;
+  }
+
+  &-top-12 {
+    margin-top: 12px;
+  }
+
+  &-top-6 {
+    margin-top: 6px;
+  }
+
+  &-top-16 {
+    margin-top: 16px;
+  }
+
+  &-left-32 {
+    margin-left: 32px;
+  }
+
+  &-left-10 {
+    margin-left: 10px;
+  }
+
+  &-left-30 {
+    margin-left: 30px;
+  }
+
+  &-left-5 {
+    margin-left: 5px;
+  }
+
+  &-left-none {
+    margin-left: 0px;
+  }
+
+  &-bottom-none {
+    margin-bottom: 0px;
+  }
+
+  &-bottom-10 {
+    margin-bottom: 10px;
+  }
+
+  &-bottom-20 {
+    margin-bottom: 20px;
+  }
+
+  &-bottom-22 {
+    margin-bottom: 22px;
+  }
+
+  &-bottom-32 {
+    margin-bottom: 32px;
+  }
+
+  &-bottom-52 {
+    margin-bottom: 52px;
+  }
+
+  &-right-32 {
+    margin-right: 32px;
+  }
+}
+
+@include inheritance(pointers-none) {
+  pointer-events: none;
+}
+
+@include inheritance(pos) {
+  &-relative {
+    position: relative;
+  }
+}
+
+@include inheritance(important) {
+  color: var(--primary-red);
+}
+
+@include inheritance(form-container) {
+  width: 406px;
+}
+
+@include media($device: mobile) {
+  .form-container {
+    width: 100%;
+  }
+}

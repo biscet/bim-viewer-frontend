@@ -1,0 +1,55 @@
+@import 'https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap';
+
+@import './Core/Inheritance';
+@import './Core/Mixins';
+
+$transition-tokens: (
+  all-01: all 0.1s ease-in-out,
+  all-05: all 0.5s,
+  all-015: all 0.15s linear,
+);
+
+$themes: (
+  theme-light: (
+    // Colors
+    primary-blue: #007bff,
+    primary-blue-hover: #026de0,
+    primary-blue-after: rgba(0, 123, 255, 0.08),
+    primary-blue-transparent: #bfdeff,
+    primary-black: #111212,
+    primary-gray: #818181,
+    secondary-gray: #afafaf,
+    thirdy-gray: #dfdfdf,
+    primary-red: #ee5a5a,
+    primary-orange: #d89216,
+    invisible-hover: #ebf4ff,
+    avatar-bg: #cce5ff,
+    // Borders
+    border-primary-gray: 1px solid #dfdfdf,
+    // Shadows
+    shadow-button: 0px 2px 4px rgba(1, 73, 150, 0.3),
+    shadow-nav: 2px 0 8px rgba(0, 0, 0, 0.1),
+    shadow-dropdown: 0 2px 16px rgba(0, 0, 0, 0.08),
+  ),
+);
+
+* {
+  font-family: Inter, sans-serif;
+}
+
+@each $theme, $variables in $themes {
+  .#{$theme} {
+    @include set-variables($variables);
+  }
+}
+
+:root {
+  @include set-variables($transition-tokens);
+  --line-width: 5px;
+  --curtain-color: white;
+  --app-height: 100%;
+}
+
+#root {
+  position: relative;
+}

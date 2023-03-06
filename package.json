@@ -1,0 +1,70 @@
+{
+  "name": "realty",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "atomic-router": "^0.8.0",
+    "atomic-router-react": "^0.8.1",
+    "axios": "0.27.2",
+    "classnames": "^2.2.6",
+    "date-fns": "^2.29.3",
+    "effector": "22.4.0",
+    "effector-forms": "0.0.24",
+    "effector-react": "22.3.4",
+    "effector-storage": "5.0.1",
+    "history": "^5.3.0",
+    "patronum": "1.10.0",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-dropzone": "^14.2.3",
+    "react-input-mask": "^3.0.0-alpha.2",
+    "react-reveal": "^1.2.2",
+    "react-router-dom": "5.2.0",
+    "react-scripts": "4.0.1",
+    "react-select": "5.2.2",
+    "sass": "^1.50.0",
+    "serve": "^14.0.1",
+    "web-vitals": "^0.2.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "start:ssh": "ssh -R 80:localhost:3000 localhost.run",
+    "start:serve": "yarn build && serve -s build",
+    "build": "react-scripts build"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "eslint": "^7.11.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.22.0",
+    "eslint-plugin-react-perf": "^3.3.0",
+    "eslint-plugin-unicorn": "^27.0.0",
+    "stylelint": "^13.9.0",
+    "stylelint-config-idiomatic-order": "^8.1.0",
+    "stylelint-config-standard": "^20.0.0",
+    "stylelint-high-performance-animation": "^1.5.2",
+    "stylelint-scss": "^3.18.0"
+  }
+}

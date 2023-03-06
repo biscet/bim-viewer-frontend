@@ -1,0 +1,93 @@
+@import '../../Core/Mixins';
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  font-weight: 400;
+  line-height: 24px;
+
+  &__label {
+    font-size: 20px;
+    color: var(--primary-orange);
+    margin: 8px 0px;
+
+    &--required {
+      color: var(--primary-red);
+    }
+  }
+
+  &__input {
+    @include component-sizing();
+    background: black;
+    border: 1px solid #ad7512;
+    border-radius: 4px;
+    font-size: 20px;
+    outline: none;
+    color: #cce5ff;
+
+    @include focus {
+      border: 1px solid var(--primary-orange);
+    }
+
+    @include hover {
+      border: 1px solid var(--primary-orange);
+    }
+
+    &::placeholder {
+      color: var(--primary-gray);
+    }
+
+    &--error {
+      border-color: var(--primary-red);
+      color: var(--primary-red);
+    }
+
+    &--show-pass {
+      padding-right: 50px;
+    }
+
+    &[disabled] {
+      cursor: text;
+    }
+  }
+
+  &__text-error {
+    font-size: 16px;
+    margin: 8px 0px;
+    color: var(--primary-red);
+  }
+
+  &__text {
+    font-size: 16px;
+    margin: 8px 0px;
+    color: var(--primary-gray);
+    max-width: 406px;
+  }
+}
+
+.password-view {
+  position: absolute;
+  z-index: 2;
+  cursor: pointer;
+  right: 14px;
+  top: 24px;
+  user-select: none;
+
+  &:hover {
+    svg {
+      path {
+        stroke: #007bff;
+      }
+    }
+  }
+}
+
+@include media($device: mobile) {
+  .input-group {
+    width: 100%;
+
+    &__input {
+      width: 100%;
+    }
+  }
+}

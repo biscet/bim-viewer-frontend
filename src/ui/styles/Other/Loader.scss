@@ -1,0 +1,49 @@
+@import 'src/ui/styles/Core/Mixins';
+
+.loader-wrapper {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100svh;
+  transition: all 0.15s ease-in-out;
+  top: 0;
+  z-index: 2;
+
+  &__loader-section {
+    position: absolute;
+    top: 0;
+    background: #000;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  &__loader {
+    @include loader-line(0px, 2s, relative) {
+      display: block;
+      top: 50%;
+      left: 50%;
+      width: 150px;
+      height: 150px;
+      margin: -75px 0 0 -75px;
+      z-index: 2;
+    }
+
+    &:before {
+      @include loader-line(4px, 3s);
+    }
+
+    &:after {
+      @include loader-line(14px, 1.5s);
+    }
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

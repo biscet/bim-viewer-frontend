@@ -1,0 +1,82 @@
+.header {
+  background: #000;
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 15px;
+  border: 2px dotted var(--primary-orange);
+  margin-bottom: 10px;
+
+  &__logo {
+    color: var(--primary-orange);
+    font-size: 22px;
+    font-weight: 600;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+
+    &__img {
+      width: 35px;
+      height: 35px;
+      margin-right: 15px;
+    }
+
+    &:active {
+      transform: translateY(1px);
+    }
+  }
+
+  &__resend-button {
+    background: none;
+    border-radius: 10px;
+    height: 41px;
+    width: 41px;
+    display: flex;
+    cursor: pointer;
+    flex-shrink: 0;
+    border: 1px solid var(--primary-orange);
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+
+    .spin {
+      width: 24px;
+      height: 24px;
+      transition: all 1s ease-in-out;
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+    }
+
+    &:not([disabled]):hover {
+      background: var(--primary-orange);
+
+      path {
+        fill: black;
+      }
+    }
+  }
+
+  &__resend-button_active {
+    .spin {
+      animation: rotate 3s ease-in-out infinite;
+    }
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  50%,
+  100% {
+    transform: rotate(360deg);
+  }
+}
