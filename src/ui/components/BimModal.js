@@ -6,18 +6,13 @@ import { formatISODate } from 'src/lib/date';
 import { Input, Select, Button } from 'src/ui/components/Form';
 import { useDropzone } from 'react-dropzone';
 import {
-  $modalBucket,
-  engineeringForm,
-  setModalBucketFn,
-  $menuBucketDetail,
-  setUploadFileFn,
-  $uploadFile,
-  postModelFn,
-  $loaderUpload,
+  $modalBucket, engineeringForm, setModalBucketFn,
+  $menuBucketDetail, setUploadFileFn, $uploadFile,
+  postModelFn, $loaderUpload,
 } from 'src/models/Engineering';
 import { getPropsField, onSubmit } from 'src/lib/form';
 import { isEmpty } from 'src/lib/lodash';
-import { styles, options } from 'src/config/constants';
+import { styles, options, MODAL_TYPES } from 'src/config/constants';
 
 const closeModal = () => {
   setModalBucketFn('');
@@ -39,7 +34,7 @@ export default function BimModal() {
   const date = formatISODate(createdDate);
   const policy = options.find((item) => item.value === policyKey);
 
-  if (opened === 'uploadModel') {
+  if (opened === MODAL_TYPES.upload) {
     return (
       <div className="bim-modal">
         <div className="bim-modal__area" onClick={closeModal} />
@@ -76,7 +71,7 @@ export default function BimModal() {
     );
   }
 
-  if (opened === 'bucketDetail') {
+  if (opened === MODAL_TYPES.detail) {
     return (
       <div className="bim-modal">
         <div className="bim-modal__area" onClick={closeModal} />
@@ -86,31 +81,31 @@ export default function BimModal() {
             <Close />
           </div>
 
-          <div className="task-view--text">
-            <p className="view-title">Название Бакета</p>
-            <p className="view-text">{bucketName}</p>
+          <div className="text-group">
+            <p className="text-group__title">Название Бакета</p>
+            <p className="text-group__body">{bucketName}</p>
           </div>
 
-          <div className="task-view--text">
-            <p className="view-title">Срок жизни моделей</p>
-            <p className="view-text">{policy.label}</p>
+          <div className="text-group">
+            <p className="text-group__title">Срок жизни моделей</p>
+            <p className="text-group__body">{policy.label}</p>
           </div>
 
-          <div className="task-view--text">
-            <p className="view-title">Количество моделей</p>
-            <p className="view-text">{items}</p>
+          <div className="text-group">
+            <p className="text-group__title">Количество моделей</p>
+            <p className="text-group__body">{items}</p>
           </div>
 
-          <div className="task-view--text">
-            <p className="view-title">Время создания Бакета</p>
-            <p className="view-text">{date}</p>
+          <div className="text-group">
+            <p className="text-group__title">Время создания Бакета</p>
+            <p className="text-group__body">{date}</p>
           </div>
         </div>
       </div>
     );
   }
 
-  if (opened === 'createBucket') {
+  if (opened === MODAL_TYPES.create) {
     return (
       <div className="bim-modal">
         <div className="bim-modal__area" onClick={closeModal} />
@@ -187,6 +182,10 @@ const Dropzone = () => {
     onDrop,
     multiple: false,
     maxFiles: 1,
+    accept: {
+      'application/fbx': ['.fbx'],
+      'application/rvt': ['.rvt'],
+    },
   });
 
   return (
@@ -197,7 +196,7 @@ const Dropzone = () => {
         <p>Оставьте файл тут</p>
       ) : (
         <p>
-          Перетащите файл в формате ... сюда или
+          Перетащите файл в формате .fbx/.rvt сюда или
           {' '}
           <span
             style={{

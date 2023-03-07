@@ -3,21 +3,18 @@ import React, { useState } from 'react';
 import { Slide } from 'react-reveal';
 import { useUnit } from 'effector-react';
 import {
-  $viewBucket,
-  $menuBucket,
-  setModalBucketFn,
-  setBucketDetailFn,
-  setUploadBucketIdFn,
-  setOpenAccordionFn,
+  $viewBucket, $menuBucket, setModalBucketFn,
+  setBucketDetailFn, setUploadBucketIdFn, setOpenAccordionFn,
   $openedAccordions,
 } from 'src/models/Engineering';
 import { isEmpty } from 'src/lib/lodash';
 import { showMenuBucket, hideMenuItem } from 'src/ui/components/BimMenu';
+import { MODAL_TYPES } from 'src/config/constants';
 import { BucketItem } from './BucketItem';
 
 const setOpenModalUpload = (id) => () => {
   setUploadBucketIdFn(id);
-  setModalBucketFn('uploadModel');
+  setModalBucketFn(MODAL_TYPES.upload);
 };
 
 const contextBucket = (id, detail) => (e) => {
@@ -72,7 +69,13 @@ export const BucketAccordion = ({
           const duration = (i + 1) * 75;
 
           return (
-            <Slide key={i} collapse when={opened} right duration={250 + duration}>
+            <Slide
+              key={i}
+              collapse
+              when={opened}
+              right
+              duration={250 + duration}
+            >
               <BucketItem
                 active={String(viewBucket.replace('urn:', '')) === String(item.id)}
                 id={item.id}

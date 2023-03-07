@@ -1,18 +1,12 @@
 import React, { useEffect } from 'react';
 import { useUnit } from 'effector-react';
 import {
-  setMenuBucketFn,
-  resetMenuBucketFn,
-  resetMenuItemFn,
-  setMenuItemFn,
-  deleteBucketFn,
-  $menuBucket,
-  deleteObjectFn,
-  $menuItemDelete,
-  setModalBucketFn,
-  setUploadBucketIdFn,
-  postTranslateFn,
+  setMenuBucketFn, resetMenuBucketFn, resetMenuItemFn,
+  setMenuItemFn, deleteBucketFn, $menuBucket,
+  deleteObjectFn, $menuItemDelete, setModalBucketFn,
+  setUploadBucketIdFn, postTranslateFn,
 } from 'src/models/Engineering';
+import { MODAL_TYPES } from 'src/config/constants';
 
 export const showMenuBucket = (bucket, event) => {
   event.preventDefault();
@@ -87,13 +81,13 @@ const onClickDeleteObject = (item) => () => {
 
 const onClickDetailBucket = () => {
   hideMenuBucket();
-  setModalBucketFn('bucketDetail');
+  setModalBucketFn(MODAL_TYPES.detail);
 };
 
 const onClickUpload = (id) => () => {
   hideMenuBucket();
   setUploadBucketIdFn(id);
-  setModalBucketFn('uploadModel');
+  setModalBucketFn(MODAL_TYPES.upload);
 };
 
 const onClickTranslate = (id) => () => {

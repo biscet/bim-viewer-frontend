@@ -228,3 +228,19 @@
     transform: rotate(360deg);
   }
 }
+
+.text-group {
+  display: flex;
+  flex-direction: column;
+  color: var(--primary-orange);
+
+  &__title {
+    font-weight: 600;
+    margin-bottom: 5px;
+  }
+
+  &__body {
+    margin-bottom: 20px;
+    font-style: italic;
+  }
+}

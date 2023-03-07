@@ -11,3 +11,9 @@ export const options = [
   { value: 'temporary', label: 'Временные' },
   { value: 'persistent', label: 'Постоянные' },
 ];
+
+export const MODAL_TYPES = {
+  upload: 'uploadModel',
+  detail: 'bucketDetail',
+  create: 'createBucket',
+};
